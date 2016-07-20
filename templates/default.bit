@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="<?php echo Blog::language() ?>">
+<head>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>NibbleBlog 2 Bludit Exporter</title>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <?php echo Blog::css(array('normalize.css', 'skeleton.css', 'main.css')); ?>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns" style="margin-top: 5%">
+	<h1>Nibbleblog 2 Bludit Exporter</h1>
+	<p>by Dominik Sust</p>
+      </div>
+    </div>
+	<?php
+	if( $Login->is_logged()) {
+		if ($_GET['action'] == 'Start export!') {
+			//Make directories
+			echo "<p>Creating Export directory...</p>";
+			include(THEME_ROOT."/php/mkdirs.php"); 
+			echo "<p>Done!</p>";
+			//Define Paths
+			include(THEME_ROOT."/php/constants.php"); 
+			//Export Posts 
+			echo "<p>Export posts...</p>";
+			include(THEME_ROOT."/php/posts.php"); 
+			echo "<p>Done!</p>";
+			//Export Pages
+			echo "<p>Export pages...</p>";
+			include(THEME_ROOT."/php/pages.php"); 
+			echo "<p>Done!</p>";
+			//Export images
+			echo "<p>Copiing images and creating thumbnails...</p>";
+			include(THEME_ROOT."/php/images.php");
+			echo "<p>Done!</p>";
+			//Make ZIP
+			echo "<p>Create Zip-File</p>";
+			include(THEME_ROOT."/php/createZip.php");
+			echo "<p>Done!</p>"; ?>
+			<form method="get" action="<?php echo PATH_EXPORT.'/bluditExport.zip'; ?>">
+			  <input type="submit" name="action" value="Download Zip">
+			</form>
+			<?php
+		} else {
+			?>
+			<div class="row roundborder">
+			  <div class="twelve columns" style="margin-top: 5%">
+			    <h2>Welcome to the exporter!</h2>
+			    <p>This exporter creates a zip-file with all posts, pages and uploaded images.</p>
+			    <p>Just unzip this file on your system and merge the directory "bl-content" with<br>
+			    the one from the zip. But first, let\'s create the zip.</p>
+			    <p>Click on the button below to start the export!</p>
+			    <form method="get" action="#">
+			      <input type="submit" name="action" value="Start export!">
+			    </form>
+			  </div>
+			</div>
+			<?php		
+		}
+	} else {
+		?>
+		<div class="row roundborder">
+		<div class="twelve columns" style="margin-top: 5%">
+		<h2>You are not logged in!</h2>
+		<p>Please open a new tab and log into backend.<br>
+		While logged in, come back here and refresh this site!</p>
+		<h5><a href="<?php echo Blog::url().'admin.php'; ?>" target="_blank">To admin panel</a></h5>
+		<h5><a href="<?php echo Blog::url(); ?>" target="_self">Refresh this page</a></h5>
+		</div>
+		</div>
+		<?php
+	}
+	?>
+
+
+  </div> <!-- End container -->
+</body>
+</html>

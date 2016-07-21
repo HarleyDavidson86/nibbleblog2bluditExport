@@ -61,9 +61,22 @@
 			<div class="row roundborder">
 			  <div class="twelve columns" style="margin-top: 5%">
 			    <h2>Welcome to the exporter!</h2>
-			    <p>This exporter creates a zip-file with all posts, pages and uploaded images.</p>
-			    <p>Just unzip this file on your system and merge the directory "bl-content" with<br>
-			    the one from the zip. But first, let\'s create the zip.</p>
+			    <p>This exporter creates a zip-file with all posts, pages and uploaded images,
+				ready to be imported by a fresh installation of Bludit in <strong>three simple steps</strong>:</p>
+				<h5>Step 1</h5>
+				<p>Click on the button below to create the zip-file with all your content.
+				After the exporter finished, you are able to download it directly from this site.</p>
+			    <h5>Step 2</h5>
+				<p>Just unzip this file on your system and merge the directory "bl-content" from the zip 
+				with the one of your Bludit installation.</p>
+				<h5>Step 3</h5>
+				<p>Open the file "[bludit-root-directory]\bl-kernel\boot\init.php" and change and enable "CLI Mode"
+				by changing the line</p>
+				<p><i>define('CLI_MODE', false);</i> to<br>
+				<i>define('CLI_MODE', <strong>true</strong>);</i></p>
+				<p>Save the file and refresh your bludit page one time. You should now be able to see all
+				of your Nibbleblog Content. After this you can set the value of "CLI Mode" back to "false".</p>
+				<p>That's it!</p>
 			    <p>Click on the button below to start the export!</p>
 			    <form method="get" action="#">
 			      <input type="submit" name="action" value="Start export!">

@@ -74,8 +74,12 @@
 				by changing the line</p>
 				<p><i>define('CLI_MODE', false);</i> to<br>
 				<i>define('CLI_MODE', <strong>true</strong>);</i></p>
+				<p>Then, open the file "[bludit-root-directory]\bl-kernel\boot\rules\70.posts.php" and change
+				the following line</p>
+				<p><i>if( CLI_MODE && false) {</i> to<br>
+				<i>if( CLI_MODE ) {</i></p>
 				<p>Save the file and refresh your bludit page one time. You should now be able to see all
-				of your Nibbleblog Content. After this you can set the value of "CLI Mode" back to "false".</p>
+				of your Nibbleblog Content. After this you can undo the changes you did in this two files.</p>
 				<p>That's it!</p>
 			    <p>Click on the button below to start the export!</p>
 			    <form method="get" action="#">

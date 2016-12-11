@@ -1,5 +1,6 @@
 <?php 
 $info = "<p>";
+$pages = $_DB_PAGES->get_all();
 foreach($pages as $page) 
 {
 	//Create subdir for page

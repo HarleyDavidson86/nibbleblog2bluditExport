@@ -1,5 +1,6 @@
 <?php 
 $info = "<p>";
+$posts = $_DB_POST->get_all();
 foreach($posts as $post) 
 {
 	//Create subdir for post

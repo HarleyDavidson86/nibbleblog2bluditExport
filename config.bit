@@ -4,10 +4,10 @@ $theme = array
 (
 	'name'=>'bluditExport',
 	'description'=>'Exporter for posts, pages and images.',
-	'notes'=>'Tested with Bludit 1.4 and Nibbleblog 4.0.5',
+	'notes'=>'Tested with Bludit 1.5.2 and Nibbleblog 4.0.5',
 	'author'=>'Dominik Sust',
-	'version'=>'1.0',
-	'last_update'=>'21/07/2016', // dd/mm/yyyy
+	'version'=>'1.1',
+	'last_update'=>'07/12/2016', // dd/mm/yyyy
 	'url'=>'http://www.itwerkstatt.omdriebigs-gspann.de', // http://xxxxxxxxxxxxx
 	'version_supported'=>array('4.0', '4.0.1') // Nibbleblog version supporteds
 );
